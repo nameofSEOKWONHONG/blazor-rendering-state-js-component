@@ -23,6 +23,6 @@
    * SSR + blazor-js-component : 동작 안함.
    * CSR + blazor-js-component : 동작 안함.
 
-5. 예로 아래와 같다.
-  [pre-rending](./../../../../doc/pre-rendering.jpg)  
-  [ssr or csr](./../../../../doc/ssr_or_csr.gif)
+5. **예로 아래와 같다:**
+   * ![pre-rendering.jpg](doc/pre-rendering.jpg)
+   * ![ssr_or_csr.gif](doc/ssr_or_csr.gif)

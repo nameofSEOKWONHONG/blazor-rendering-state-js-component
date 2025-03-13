@@ -17,6 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="..\..\..\README.EN.md">
+        <Link>README.EN.md</Link>
+      </Content>
       <Content Include="..\..\..\README.md">
         <Link>README.md</Link>
       </Content>
