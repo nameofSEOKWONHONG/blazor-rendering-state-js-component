@@ -11,7 +11,10 @@
 
 <h1>Counter</h1>
 
-<button data-ref="@Refs["button"]">Click me!</button>
+<button onclick="@Click">Native click me!</button>
+<span>Current count: @(_currentCount)</span>
+<br/>
+<button data-ref="@Refs["button"]">Static Click me!</button>
 <span data-ref="@Refs["label"]">Current count: 0</span>
 <ul data-ref="@Refs["ul"]">
 </ul>
@@ -19,4 +22,10 @@
 
 @code {
     const int IncrementAmount = 7;
+    int _currentCount = 0;
+
+    void Click()
+    {
+        _currentCount += IncrementAmount;
+    }
 }

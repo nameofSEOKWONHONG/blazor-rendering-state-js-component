@@ -1,0 +1,59 @@
+@page "/Counter2"
+@rendermode InteractiveWebAssembly
+@implements IAsyncDisposable
+<RenderStateViewer Parent="this" />
+
+<PageTitle>Counter2</PageTitle>
+
+<h1>Counter</h1>
+
+<button onclick="@Click">Click me!</button>
+<span>Current count: @_currentCount</span>
+<ul>
+    @{
+        foreach (var item in _list)
+        {
+            <li>@($"{item.Item1}, {item.Item2}")</li>
+        }
+    }
+</ul>
+
+@inject IntervalService IntervalService
+@code
+{
+    int _currentCount = 0;
+    List<ValueTuple<long, int>> _list = [];
+    List<ValueTuple<long, int>> _dummy = [];
+    protected override async Task OnInitializedAsync()
+    {
+        IntervalService.OnTick += IntervalServiceOnOnTick;
+        IntervalService.Start(TimeSpan.FromSeconds(1));
+    }
+
+    private void IntervalServiceOnOnTick()
+    {
+        _list.AddRange(_dummy);
+        StateHasChanged();
+        _dummy.Clear();
+    }
+
+    void Click()
+    {
+        _currentCount += 1;
+        _dummy.Add(new ValueTuple<long, int>(DateTime.UtcNow.Ticks, _currentCount));
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        IntervalService.OnTick -= IntervalServiceOnOnTick;
+        if (IntervalService is IAsyncDisposable intervalServiceAsyncDisposable)
+        {
+            await intervalServiceAsyncDisposable.DisposeAsync();            
+        }
+        else if (IntervalService != null)
+        {
+            IntervalService.Dispose();
+        }
+            
+    }
+}

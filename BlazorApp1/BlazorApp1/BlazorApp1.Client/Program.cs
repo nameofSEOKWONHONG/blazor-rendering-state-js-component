@@ -9,6 +9,7 @@ class Program
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
         builder.Services.AddJSComponents();
+        builder.Services.AddScoped<IntervalService>();
         builder.AddBlazrRenderStateWASMServices();
         await builder.Build().RunAsync();
     }

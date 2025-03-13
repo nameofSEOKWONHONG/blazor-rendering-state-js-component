@@ -1,3 +1,4 @@
+using BlazorApp1.Client;
 using BlazorApp1.Client.Pages;
 using BlazorApp1.Components;
 using Blazr.RenderState.Server;
@@ -14,7 +15,7 @@ public class Program
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
-        
+        builder.Services.AddScoped<IntervalService>();
         builder.Services.AddJSComponents();
         builder.AddBlazrRenderStateServerServices();
 
