@@ -16,4 +16,10 @@
         <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.116.1" />        
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="..\..\..\README.md">
+        <Link>README.md</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>
