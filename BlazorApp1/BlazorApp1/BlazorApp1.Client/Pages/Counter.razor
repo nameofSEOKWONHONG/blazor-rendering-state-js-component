@@ -1,0 +1,22 @@
+﻿@page "/counter"
+
+@attribute [DiscoverCollocatedJS]
+@inject JSElementReferenceScope Refs
+
+<JS For="this" />
+
+<RenderStateViewer Parent="this" />
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<button data-ref="@Refs["button"]">Click me!</button>
+<span data-ref="@Refs["label"]">Current count: 0</span>
+<ul data-ref="@Refs["ul"]">
+</ul>
+<JS For="this" Args="[IncrementAmount, Refs]" />
+
+@code {
+    const int IncrementAmount = 7;
+}
