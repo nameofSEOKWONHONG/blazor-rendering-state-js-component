@@ -10,7 +10,7 @@
    * SSR : Blazor Server 또는 Web App에서 Server 호스팅일 경우 서버에서 랜더링 하는 것을 의미하며 `@rendermode InteractiveAuto 또는 @rendermode InteractiveServer` 일 경우 적용된다.
    * CSR : Blazor WASM 프로젝트로 Server 또는 Web App에서 Client 일 경우, `@rendermode` 가 InteractiveWebAssembly일 경우 적용된다.
 
-3. 호스팅 단위별 랜더링 상태는 아래와 같다.
+3. 랜더모드별 랜더링 상태는 아래와 같다.
    * Blazor Server : Pre-Rendering -> SSR
    * Blazor Server : (Pre-Rendering off) SSR
    * Blazor WASM : CSR
